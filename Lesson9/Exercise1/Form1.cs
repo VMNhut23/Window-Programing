@@ -48,15 +48,17 @@ namespace Exercise1
 				db.Students.Add(aStudent);
 				db.SaveChanges();
 			}
+			Form1_Load(sender, e);
 		}
 
 		private void button2_Click(object sender, EventArgs e)
 		{
 			var db = new Lesson9Entities();
 			Student aStudent = new Student();
-			aStudent = db.Students.Where(d => d.studentID == 3).First() as Student;
-			aStudent.studentName = "Nguyen Van Linh";
+			aStudent = db.Students.Where(d => d.studentID == 4).FirstOrDefault();
+			aStudent.studentName = "Nguyen Minh Tinh";
 			db.SaveChanges();
+			Form1_Load(sender, e);
 		}
 
 		private void button3_Click(object sender, EventArgs e)
@@ -66,6 +68,7 @@ namespace Exercise1
 			aStudent = db.Students.Where(d => d.studentID == 5).First() as Student;
 			db.Students.Remove(aStudent);
 			db.SaveChanges();
+			Form1_Load(sender, e);
 		}
 
 		private void button4_Click(object sender, EventArgs e)
@@ -81,13 +84,19 @@ namespace Exercise1
 				aStudent.Address_ = " 11 Le Lai";
 				db.Students.Add(aStudent);
 				// update
-				aStudent = db.Students.Where(d => d.studentID == 5).First() as Student;
+				aStudent = db.Students.Where(d => d.studentID == 4).First() as Student;
 				aStudent.studentName = "Nguyen Van Linh";
 				//delete
-				aStudent = db.Students.Where(d => d.studentID == 5).First() as Student;
+				aStudent = db.Students.Where(d => d.studentID == 4).First() as Student;
 				db.Students.Remove(aStudent);
 				db.SaveChanges();
 			}
+			Form1_Load(sender, e);
+		}
+
+		private void textBox1_TextChanged(object sender, EventArgs e)
+		{
+
 		}
 	}
 }
